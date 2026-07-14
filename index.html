@@ -1,111 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Notepad</title>
-
-<style>
-body{
-    font-family: Arial;
-    background:#f2f2f2;
-    text-align:center;
-}
-
-.container{
-    width:90%;
-    max-width:500px;
-    margin:30px auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 0 10px gray;
-}
-
-h1{
-    color:#333;
-}
-
-textarea{
-    width:100%;
-    height:250px;
-    padding:10px;
-    font-size:18px;
-    border:1px solid #999;
-    border-radius:5px;
-    resize:none;
-}
-
-button{
-    margin:10px;
-    padding:12px 25px;
-    border:none;
-    border-radius:5px;
-    font-size:16px;
-    cursor:pointer;
-}
-
-.save{
-    background:green;
-    color:white;
-}
-
-.clear{
-    background:red;
-    color:white;
-}
-</style>
-
-</head>
-<head>
-     <meta name="viewport"
-    content="width=device-width; initial-scale=1.0,maximum-scale=1.0">
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>📝 Enter your Future</h1>
-
-<textarea id="note" placeholder="Write your note here..."></textarea>
-
-<br>
-
-<button class="save" onclick="saveNote()">Save</button>
-
-<button class="clear" onclick="clearNote()">Clear</button>
-
-</div>
-
-
-<script>
-
-let note=document.getElementById("note");
-
-// Load saved note
-note.value = localStorage.getItem("myNote") || "";
-
-// Save
-function saveNote(){
-    localStorage.setItem("myNote", note.value);
-    alert("Note Saved!");
-}
-
-// Clear
-function clearNote(){
-    note.value="";
-    localStorage.removeItem("myNote");
-}
-
-</script>
-
-</body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
+    <center>
 <style>
 
 button{
@@ -125,6 +21,7 @@ button{
 <a href="https://shahriarfoysalsad-design.github.io/GK/" target="_blank">
     <button>GK</button>
 </a>
+</center>
 </body>
 </html>
 
