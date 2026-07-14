@@ -1,181 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" 
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Shahriar Foysal Sad</title>
-</head>
+<title>Notepad</title>
 
-<center>
-
-<head>
 <style>
-body {
-  background-color: rgb(192, 144, 238);
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+    text-align:center;
 }
 
-h1 {
-  color: white;
-  text-align: center;
+.container{
+    width:90%;
+    max-width:500px;
+    margin:30px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
 }
 
-p {
-  font-family: verdana;
-  font-size: 20px;
+h1{
+    color:#333;
+}
+
+textarea{
+    width:100%;
+    height:250px;
+    padding:10px;
+    font-size:18px;
+    border:1px solid #999;
+    border-radius:5px;
+    resize:none;
+}
+
+button{
+    margin:10px;
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.save{
+    background:green;
+    color:white;
+}
+
+.clear{
+    background:red;
+    color:white;
 }
 </style>
+
 </head>
+
 <body>
 
-<h1>SAARK Countries</h1>
-<p>
+<div class="container">
+
+<h1>📝 Enter your Future</h1>
+
+<textarea id="note" placeholder="Write your note here..."></textarea>
+
+<br>
+
+<button class="save" onclick="saveNote()">Save</button>
+
+<button class="clear" onclick="clearNote()">Clear</button>
+
+</div>
 
 
-</body>
+<script>
 
-<head>
-<style>
-body {
-  background-color: rgb(198, 223, 198);
+let note=document.getElementById("note");
+
+// Load saved note
+note.value = localStorage.getItem("myNote") || "";
+
+// Save
+function saveNote(){
+    localStorage.setItem("myNote", note.value);
+    alert("Note Saved!");
 }
 
-h1 {
-  color: rgb(72, 71, 139);
-  text-align: center;
+// Clear
+function clearNote(){
+    note.value="";
+    localStorage.removeItem("myNote");
 }
 
-p {
-  font-family: verdana;
-  font-size: 15px;
-}
-</style>
-</head>
-<body>
-  <p>
+</script>
+
 </body>
-</center>
-<body>
-  সার্ক (SAARC) বা দক্ষিণ এশীয় আঞ্চলিক সহযোগিতা সংস্থার সদস্য দেশ মোট ৮টি। এগুলো হলো: বাংলাদেশ, ভারত, পাকিস্তান, শ্রীলঙ্কা, নেপাল, ভুটান, মালদ্বীপ এবং আফগানিস্তান  আফগানিস্তান ২০০৭ সালে সর্বশেষ সদস্য হিসেবে যোগ দেয় 
-
-প্রতিষ্ঠাতা সদস্য (৭টি): বাংলাদেশ, ভারত, পাকিস্তান, শ্রীলঙ্কা, নেপাল, ভুটান এবং মালদ্বীপ 
-
-৮ম সদস্য: আফগানিস্তান (২০০৭ সালে অন্তর্ভুক্ত) 
-
- 
-
-সার্ক ১৯৮৫ সালের ৮ই ডিসেম্বর প্রতিষ্ঠিত হয় এবং এর সচিবালয় নেপালের কাঠমুন্ডুতে অবস্থিত
-</body>
-<br>
-<br>
-<br>
-<center><b>সার্কভুক্ত দেশগুলোর সংখ্যা</b>
-</center>
-<br>
-<br>
-বর্তমানে সার্কভুক্ত দেশের সংখ্যা ৮টি। এই দেশগুলো হলো:
-<br>
-<br>
-<br>
-<b>বাংলাদেশ</b>
-<br>
-রাজধানী: ঢাকা
-<br>
-সদস্যপদ লাভ: ১৯৮৫ সালে প্রতিষ্ঠার সময় থেকেই।
-<br>
-ভাষা: বাংলা
-<br>
-বিশেষ পরিচিতি: সারা বিশ্বের মধ্যে পাট ও গার্মেন্টস শিল্পে বিশেষ অবদান রয়েছে।
-<br>
-<br>
-<br>
-<b>ভারত</b>
-<br>
-রাজধানী: নয়াদিল্লি
-<br>
-সদস্যপদ লাভ: ১৯৮৫ সালে।
-<br>
-ভাষা: হিন্দি, ইংরেজি এবং অন্যান্য আঞ্চলিক ভাষা।
-<br>
-বিশেষ পরিচিতি: বিশ্বের অন্যতম বৃহৎ অর্থনীতি এবং জনসংখ্যার দিক থেকে প্রথম।
-<br>
-<br>
-<br>
-<b>পাকিস্তান</b>
-<br>
-রাজধানী: ইসলামাবাদ
-<br>
-সদস্যপদ লাভ: ১৯৮৫ সালে।
-<br>
-ভাষা: উর্দু এবং ইংরেজি।
-<br>
-বিশেষ পরিচিতি: ক্রীড়া ও সামরিক ক্ষেত্রে প্রভাবশালী।
-<br>
-<br>
-<br>
-<b>শ্রীলঙ্কা</b>
-<br>
-রাজধানী: কলম্বো
-<br>
-সদস্যপদ লাভ: ১৯৮৫ সালে।
-<br>
-ভাষা: সিংহলি ও তামিল।
-<br>
-বিশেষ পরিচিতি: সুন্দর প্রাকৃতিক দৃশ্য ও চা উৎপাদনের জন্য খ্যাত।
-<br>
-<br>
-<br>
-<b>নেপাল</b>
-<br>
-রাজধানী: কাঠমান্ডু
-<br>
-সদস্যপদ লাভ: ১৯৮৫ সালে।
-<br>
-ভাষা: নেপালি।
-<br>
-বিশেষ পরিচিতি: বিশ্বের সর্বোচ্চ পর্বতশৃঙ্গ এভারেস্ট এখানে অবস্থিত।
-<br>
-<br>
-<br>
-<b>ভুটান</b>
-<br>
-রাজধানী: থিম্পু
-<br>
-সদস্যপদ লাভ: ১৯৮৫ সালে।
-<br>
-ভাষা: জংখা।
-<br>
-বিশেষ পরিচিতি: সুখের সূচকে বিশ্বের শীর্ষস্থানীয় দেশগুলোর একটি।
-<br>
-<br>
-<br>
-<b>মালদ্বীপ</b>
-<br>
-রাজধানী: মালে
-<br>
-সদস্যপদ লাভ: ১৯৮৫ সালে।
-<br>
-ভাষা: ধিভেহি।
-<br>
-বিশেষ পরিচিতি: পর্যটনশিল্প এবং প্রাকৃতিক সৌন্দর্যের জন্য বিখ্যাত।
-<br>
-<br>
-<br>
-<b>আফগানিস্তান</b>
-<br>
-রাজধানী: কাবুল
-<br>
-সদস্যপদ লাভ: ২০০৭ সালে।
-<br>
-ভাষা: পশতু ও দারি।
-<br>
-বিশেষ পরিচিতি: প্রাচীন ঐতিহ্য ও বাণিজ্যিক পথ হিসেবে গুরুত্বপূর্ণ ভূমিকা।
-  <br>
-<br>
-<br>
-
-
-
-
-
-
 </html>
