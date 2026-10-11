@@ -1,909 +1,754 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>SFS Space Survival</title>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-  <title>SFS Space Survival</title>
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+<title>মোল্লা বংশের ইতিহাস | পারিবারিক বংশলতিকা</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #07111f;
+  --panel: #101e30;
+  --panel2: #14253a;
+  --gold: #e9bd68;
+  --blue: #68baff;
+  --text: #f1f5fa;
+  --muted: #a6b4c6;
+  --line: #34485f;
 }
 
-body{
-  min-height:100vh;
-  background:#03040b;
-  color:white;
-  font-family:Arial,sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at top, #172d48 0%, transparent 50%),
+    var(--bg);
+  line-height: 1.7;
 }
 
-.game{
-  width:100%;
-  max-width:430px;
-  text-align:center;
-  padding:10px;
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7,17,31,.93);
+  border-bottom: 1px solid #293a4e;
+  backdrop-filter: blur(14px);
 }
 
-.logo{
-  font-size:34px;
-  font-weight:bold;
-  letter-spacing:7px;
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.subtitle{
-  font-size:10px;
-  letter-spacing:5px;
-  opacity:.5;
-  margin-bottom:10px;
+.logo {
+  color: var(--gold);
+  font-size: 22px;
+  font-weight: 700;
 }
 
-.info{
-  display:flex;
-  justify-content:space-around;
-  background:#101522;
-  padding:10px;
-  border-radius:14px;
-  margin-bottom:8px;
-  font-size:13px;
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
-.space{
-  position:relative;
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
 }
 
-canvas{
-  display:block;
-  width:100%;
-  max-width:400px;
-  margin:auto;
-  border-radius:20px;
-  background:#02030a;
-  border:1px solid #252b45;
+nav a:hover { color: var(--gold); }
+
+.hero {
+  text-align: center;
+  padding: 75px 20px 55px;
 }
 
-/* START SCREEN */
-
-.startScreen{
-  position:absolute;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  border-radius:20px;
-  background:rgba(2,3,10,.72);
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 2px;
+  font-size: 13px;
 }
 
-.startScreen h2{
-  font-size:28px;
-  letter-spacing:3px;
-  margin-bottom:20px;
+.hero h1 {
+  font-size: clamp(32px, 6vw, 58px);
+  line-height: 1.25;
+  margin: 15px 0;
 }
 
-.startBtn{
-  border:0;
-  padding:15px 50px;
-  border-radius:50px;
-  background:linear-gradient(135deg,#7b2cff,#00c6ff);
-  color:white;
-  font-size:18px;
-  font-weight:bold;
-  box-shadow:0 8px 25px rgba(0,180,255,.25);
-  cursor:pointer;
+.hero h1 span { color: var(--gold); }
+
+.hero p {
+  color: var(--muted);
+  max-width: 650px;
+  margin: auto;
 }
 
-.startBtn:active{
-  transform:scale(.94);
+.actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-/* CONTROL BUTTONS */
-
-.controls{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  margin-top:4px;
-  transform:translateY(-3px);
+button, .btn {
+  border: 1px solid var(--gold);
+  padding: 10px 19px;
+  border-radius: 9px;
+  background: var(--gold);
+  color: #111a25;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.control{
-  width:80px;
-  height:48px;
-  border:1px solid #30364e;
-  border-radius:15px;
-  background:#111625;
-  color:white;
-  font-size:24px;
-  touch-action:none;
-  user-select:none;
+button.secondary, .btn.secondary {
+  color: var(--text);
+  background: transparent;
+  border-color: #40536a;
 }
 
-.control:active{
-  background:#26304a;
-  transform:scale(.94);
+button:hover, .btn:hover { opacity: .85; }
+
+.stats {
+  max-width: 900px;
+  padding: 0 18px;
+  margin: 0 auto 55px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
 }
 
-.tip{
-  margin-top:3px;
-  font-size:10px;
-  opacity:.45;
+.stat {
+  background: var(--panel);
+  border: 1px solid #263b53;
+  border-radius: 14px;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 27px;
+  color: var(--gold);
+}
+
+.stat span { color: var(--muted); font-size: 13px; }
+
+section {
+  max-width: 1150px;
+  margin: auto;
+  padding: 35px 20px 55px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section-title h2 {
+  font-size: 30px;
+  margin: 0 0 8px;
+}
+
+.section-title p { color: var(--muted); margin: 0; }
+
+.search-wrap {
+  max-width: 550px;
+  margin: 0 auto 30px;
+  display: flex;
+  gap: 9px;
+}
+
+input {
+  width: 100%;
+  padding: 13px 15px;
+  color: var(--text);
+  background: #0d1a2a;
+  border: 1px solid #34485f;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+}
+
+input:focus { border-color: var(--gold); }
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.person {
+  width: min(100%, 270px);
+  padding: 15px;
+  text-align: center;
+  background: linear-gradient(145deg, #172b42, #0e1b2b);
+  border: 1px solid #344a63;
+  border-radius: 13px;
+  position: relative;
+  transition: .25s;
+  overflow-wrap: anywhere;
+}
+
+.person:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.person.found {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px #e9bd682c;
+}
+
+.person.root {
+  border-color: var(--gold);
+  background: linear-gradient(145deg, #493a25, #182536);
+}
+
+.person.featured { border-color: #438dca; }
+
+.person .name {
+  display: block;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.person .relation {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.connector {
+  height: 28px;
+  width: 2px;
+  background: var(--line);
+}
+
+.children {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 22px;
+  padding-top: 26px;
+  width: 100%;
+}
+
+.children::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 13px;
+  background: var(--line);
+}
+
+.branch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  flex: 1;
+}
+
+.branch::before {
+  content: "";
+  position: absolute;
+  top: -26px;
+  height: 2px;
+  background: var(--line);
+  left: 50%;
+  right: -50%;
+}
+
+.branch:first-child::before { left: 50%; }
+.branch:last-child::before { right: 50%; }
+
+.branch .connector { height: 22px; }
+
+.branch-children {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding-top: 22px;
+  position: relative;
+}
+
+.branch-children::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 2px;
+  left: 50%;
+  right: 50%;
+  background: var(--line);
+}
+
+.branch-children .person { width: 100%; }
+
+.subbranch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.subbranch > .connector { height: 20px; }
+
+.generation-label {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 12px;
+  padding: 4px 12px;
+  margin: 24px 0 8px;
+  border: 1px solid #6e5a36;
+  border-radius: 20px;
+}
+
+.tree-note {
+  color: var(--muted);
+  text-align: center;
+  margin-top: 25px;
+  font-size: 13px;
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.history-card {
+  padding: 22px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid #273d55;
+}
+
+.history-card .symbol {
+  font-size: 25px;
+  color: var(--gold);
+}
+
+.history-card h3 { margin: 8px 0; }
+.history-card p { color: var(--muted); margin: 0; }
+
+.notice {
+  border-left: 3px solid var(--gold);
+  background: #142235;
+  padding: 17px 20px;
+  color: var(--muted);
+  border-radius: 0 10px 10px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 28px 18px;
+  border-top: 1px solid #26384c;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer strong { color: var(--gold); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 25px;
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .children {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .branch {
+    flex: 1 1 28%;
+  }
+
+  .branch::before { display: none; }
+
+  .history-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .branch-children { flex-wrap: wrap; }
+  .branch-children .person { min-width: 110px; }
+}
+
+@media (max-width: 560px) {
+  .nav { padding: 10px 13px; }
+  .logo { font-size: 18px; }
+  nav { gap: 9px; }
+  nav a { font-size: 12px; }
+  .hero { padding: 55px 16px 38px; }
+  .stats { gap: 8px; }
+  .stat { padding: 13px 5px; }
+  .stat strong { font-size: 22px; }
+  .stat span { font-size: 11px; }
+  section { padding: 28px 13px 40px; }
+  .section-title h2 { font-size: 25px; }
+  .children { gap: 12px; }
+  .branch { flex: 1 1 100%; }
+  .branch > .person { width: min(100%, 270px); }
+  .branch-children { gap: 8px; }
+  .branch-children .person { min-width: 0; }
+  .person .name { font-size: 16px; }
+  .history-grid { grid-template-columns: 1fr; }
+  .search-wrap { flex-direction: column; }
+}
+
+@media print {
+  body { background: white; color: black; }
+  header, .actions, .search-wrap, footer button { display: none !important; }
+  .person, .history-card, .stat {
+    background: white;
+    color: black;
+    border: 1px solid #777;
+    break-inside: avoid;
+  }
+  .person .relation, .history-card p, .stat span,
+  .tree-note, .section-title p { color: #333; }
+  .hero { padding: 20px; }
+  .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="game">
+<header>
+  <div class="nav">
+    <div class="logo">✦ মোল্লা বংশ</div>
+    <nav>
+      <a href="#home">প্রচ্ছদ</a>
+      <a href="#tree">বংশলতিকা</a>
+      <a href="#history">পারিবারিক ইতিহাস</a>
+      <a href="#about">সম্পর্কে</a>
+    </nav>
+  </div>
+</header>
 
-  <div class="logo">SFS</div>
-  <div class="subtitle">SPACE SURVIVAL</div>
-
-  <div class="info">
-    <div>Score: <b id="score">0</b></div>
-    <div>Time: <b id="time">0</b></div>
-    <div>Best: <b id="best">0</b></div>
+<main>
+  <div class="hero" id="home">
+    <div class="eyebrow">আমাদের শিকড় • আমাদের পরিচয়</div>
+    <h1>মোল্লা পরিবারের<br><span>বংশলতিকা ও ইতিহাস</span></h1>
+    <p>
+      পূর্বপুরুষ থেকে বর্তমান প্রজন্ম পর্যন্ত আমাদের পরিবারের নাম,
+      বংশধারা ও আত্মীয়তার সম্পর্ক সংরক্ষণের একটি ডিজিটাল উদ্যোগ।
+    </p>
+    <div class="actions">
+      <a class="btn" href="#tree">বংশলতিকা দেখুন ↓</a>
+      <button class="secondary" onclick="window.print()">🖨️ প্রিন্ট করুন</button>
+    </div>
   </div>
 
-  <div class="space">
+  <div class="stats reveal">
+    <div class="stat">
+      <strong>৪</strong>
+      <span>প্রজন্মের পরিচয়</span>
+    </div>
+    <div class="stat">
+      <strong>১৪+</strong>
+      <span>পরিবারের সদস্য</span>
+    </div>
+    <div class="stat">
+      <strong>১</strong>
+      <span>পারিবারিক ঐতিহ্য</span>
+    </div>
+  </div>
 
-    <canvas id="canvas" width="400" height="600"></canvas>
-
-    <!-- CENTER START BUTTON -->
-    <div class="startScreen" id="startScreen">
-      <h2 id="title">SFS SPACE</h2>
-      <button class="startBtn" onclick="startGame()">START</button>
+  <section id="tree">
+    <div class="section-title reveal">
+      <h2>🌳 আমাদের পারিবারিক বংশলতিকা</h2>
+      <p>নিচে পূর্বপুরুষ থেকে পরবর্তী প্রজন্মের সম্পর্ক সাজানো হয়েছে।</p>
     </div>
 
-  </div>
+    <div class="search-wrap">
+      <input id="searchInput" type="search"
+        placeholder="🔍 নাম খুঁজুন... যেমন: শাহরিয়ার, আব্বাস"
+        aria-label="পরিবারের সদস্য খুঁজুন">
+      <button onclick="clearSearch()">সব দেখুন</button>
+    </div>
 
-  <!-- LEFT / RIGHT CONTROLS -->
-  <div class="controls">
+    <div class="tree" id="familyTree">
 
-    <button class="control" id="left">
-      ◀
-    </button>
+      <!-- প্রথম প্রজন্ম -->
+      <div class="person root reveal" data-name="তরি মোল্লা Tori Molla">
+        <span class="name">তরি মোল্লা</span>
+        <span class="relation">পরিবারের আদি পূর্বপুরুষ</span>
+      </div>
 
-    <button class="control" id="right">
-      ▶
-    </button>
+      <div class="connector"></div>
+      <div class="generation-label">দ্বিতীয় প্রজন্ম</div>
 
-  </div>
+      <div class="person reveal" data-name="পেরকু মোল্লা Perku Molla">
+        <span class="name">পেরকু মোল্লা</span>
+        <span class="relation">তরি মোল্লার ছেলে</span>
+      </div>
 
-  <div class="tip">
-    Avoid the meteors • PC: ← → • Mobile: touch buttons
-  </div>
+      <div class="connector"></div>
+      <div class="generation-label">তৃতীয় প্রজন্ম</div>
 
-</div>
+      <div class="children">
 
+        <!-- আনিসার মোল্লার শাখা -->
+        <div class="branch">
+          <div class="person reveal" data-name="আনিসার মোল্লা Anisar Molla">
+            <span class="name">আনিসার মোল্লা</span>
+            <span class="relation">পেরকু মোল্লার ছেলে</span>
+          </div>
+
+          <div class="connector"></div>
+          <div class="generation-label">চতুর্থ প্রজন্ম</div>
+
+          <div class="branch-children">
+
+            <div class="subbranch">
+              <div class="person featured reveal"
+                data-name="নওশাদ মোল্লা নওশাদ Nawshad Naeshad Molla">
+                <span class="name">নওশাদ মোল্লা</span>
+                <span class="relation">আনিসার মোল্লার ছেলে</span>
+              </div>
+              <div class="connector"></div>
+              <div class="person reveal"
+                data-name="শাহরিয়ার ফয়সাল সাদ Shahriar Foysal Sad">
+                <span class="name">শাহরিয়ার ফয়সাল সাদ</span>
+                <span class="relation">নওশাদ মোল্লার ছেলে</span>
+              </div>
+            </div>
+
+            <div class="subbranch">
+              <div class="person reveal"
+                data-name="এমদাদুল মোল্লা Emdadul Molla">
+                <span class="name">এমদাদুল মোল্লা</span>
+                <span class="relation">আনিসার মোল্লার ছেলে</span>
+              </div>
+              <div class="connector"></div>
+              <div class="person reveal"
+                data-name="মৌমিতা সুমাইয়া এশা Moumita Sumaiya Esha">
+                <span class="name">মৌমিতা সুমাইয়া এশা</span>
+                <span class="relation">এমদাদুল মোল্লার মেয়ে</span>
+              </div>
+            </div>
+
+            <div class="subbranch">
+              <div class="person reveal"
+                data-name="বুলবুল মোল্লা Bulbul Molla">
+                <span class="name">বুলবুল মোল্লা</span>
+                <span class="relation">আনিসার মোল্লার ছেলে</span>
+              </div>
+              <div class="connector"></div>
+              <div class="person reveal"
+                data-name="আবরার জুনায়েদ আদ্রো Abrar Junayed Addro">
+                <span class="name">আবরার জুনায়েদ আদ্রো</span>
+                <span class="relation">বুলবুল মোল্লার ছেলে</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- আব্বাস মোল্লার শাখা -->
+        <div class="branch">
+          <div class="person reveal" data-name="আব্বাস মোল্লা Abbas Molla">
+            <span class="name">আব্বাস মোল্লা</span>
+            <span class="relation">পেরকু মোল্লার ছেলে</span>
+          </div>
+
+          <div class="connector"></div>
+          <div class="generation-label">চতুর্থ প্রজন্ম</div>
+
+          <div class="branch-children">
+            <div class="subbranch">
+              <div class="person reveal" data-name="পারভেজ মোল্লা Parves Molla">
+                <span class="name">পারভেজ মোল্লা</span>
+                <span class="relation">আব্বাস মোল্লার ছেলে</span>
+              </div>
+              <div class="connector"></div>
+              <div class="person reveal" data-name="আয়রা Ayra">
+                <span class="name">আয়রা</span>
+                <span class="relation">পারভেজ মোল্লার মেয়ে</span>
+              </div>
+            </div>
+
+            <div class="subbranch">
+              <div class="person reveal" data-name="শাকিল মোল্লা Sakil Molla">
+                <span class="name">শাকিল মোল্লা</span>
+                <span class="relation">আব্বাস মোল্লার ছেলে</span>
+              </div>
+              <div class="connector"></div>
+              <div class="person reveal" data-name="আফনান সাদাত Afnan Sadat">
+                <span class="name">আফনান সাদাত</span>
+                <span class="relation">শাকিল মোল্লার ছেলে</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- আলমাস মোল্লার শাখা -->
+        <div class="branch">
+          <div class="person reveal" data-name="আলমাস মোল্লা Almas Molla">
+            <span class="name">আলমাস মোল্লা</span>
+            <span class="relation">পেরকু মোল্লার ছেলে</span>
+          </div>
+
+          <div class="connector"></div>
+          <div class="generation-label">চতুর্থ প্রজন্ম</div>
+
+          <div class="branch-children">
+            <div class="subbranch">
+              <div class="person reveal" data-name="জামিল Jamil">
+                <span class="name">জামিল</span>
+                <span class="relation">আলমাস মোল্লার ছেলে</span>
+              </div>
+            </div>
+            <div class="subbranch">
+              <div class="person reveal" data-name="পাপিয়া Papia">
+                <span class="name">পাপিয়া</span>
+                <span class="relation">আলমাস মোল্লার মেয়ে</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="tree-note">
+        পরিবারের সদস্যদের নাম ও সম্পর্ক পরিবারের দেওয়া তথ্য অনুযায়ী সাজানো হয়েছে।
+      </p>
+      <div id="emptyMessage" class="empty">কোনো সদস্যের নাম পাওয়া যায়নি।</div>
+    </div>
+  </section>
+
+  <section id="history">
+    <div class="section-title reveal">
+      <h2>📜 আমাদের পারিবারিক ইতিহাস</h2>
+      <p>বংশপরিচয় ও পারিবারিক বন্ধনকে ভবিষ্যৎ প্রজন্মের জন্য সংরক্ষণ।</p>
+    </div>
+
+    <div class="history-grid">
+      <div class="history-card reveal">
+        <div class="symbol">🌳</div>
+        <h3>আমাদের শিকড়</h3>
+        <p>তরি মোল্লা থেকে শুরু হওয়া পারিবারিক বংশধারা এখানে সংরক্ষিত হয়েছে।</p>
+      </div>
+
+      <div class="history-card reveal">
+        <div class="symbol">👨‍👩‍👧‍👦</div>
+        <h3>পারিবারিক বন্ধন</h3>
+        <p>বিভিন্ন প্রজন্মের সদস্যদের নাম ও আত্মীয়তার সম্পর্ক এক জায়গায় রাখা হয়েছে।</p>
+      </div>
+
+      <div class="history-card reveal">
+        <div class="symbol">📖</div>
+        <h3>ভবিষ্যতের জন্য</h3>
+        <p>পরবর্তী প্রজন্ম যেন নিজেদের বংশপরিচয় জানতে পারে, সেই উদ্দেশ্যে এই উদ্যোগ।</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-title reveal">
+      <h2>এই ওয়েবসাইট সম্পর্কে</h2>
+      <p>মোল্লা পরিবারের পরিচয় ও ইতিহাস সংরক্ষণের ডিজিটাল ঠিকানা।</p>
+    </div>
+
+    <div class="notice reveal">
+      এই ওয়েবসাইটে পরিবারের সদস্যদের নাম, প্রজন্ম এবং সম্পর্ক প্রদর্শন করা হয়েছে।
+      নতুন সদস্যের নাম বা সম্পর্ক যোগ করার আগে পরিবারের তথ্য যাচাই করে নিন।
+      নামের বানান ও সম্পর্কের কোনো ভুল থাকলে মূল HTML কোডে সংশোধন করা যাবে।
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>মোল্লা বংশের ইতিহাস</strong></p>
+  <p>আমাদের শিকড়, আমাদের পরিচয়, আমাদের ঐতিহ্য।</p>
+  <p>© <span id="year"></span> · পারিবারিক স্মৃতি সংরক্ষণ</p>
+</footer>
 
 <script>
+const searchInput = document.getElementById('searchInput');
+const people = [...document.querySelectorAll('.person')];
+const emptyMessage = document.getElementById('emptyMessage');
 
-const canvas=document.getElementById("canvas");
-const ctx=canvas.getContext("2d");
+function searchPeople() {
+  const query = searchInput.value.trim().toLowerCase();
+  let foundCount = 0;
 
-let player;
+  people.forEach(person => {
+    const name = (person.dataset.name || person.innerText).toLowerCase();
+    const matches = !query || name.includes(query);
 
-let meteors=[];
-let stars=[];
-let particles=[];
+    person.style.display = matches ? '' : 'none';
+    person.classList.toggle('found', Boolean(query && matches));
 
-let score=0;
-let time=0;
-let best=localStorage.getItem("sfsSpaceBest") || 0;
-
-let running=false;
-let frame=0;
-let difficulty=1;
-
-let keys={
-  left:false,
-  right:false
-};
-
-document.getElementById("best").textContent=best;
-
-
-/* =========================
-   STARS
-========================= */
-
-for(let i=0;i<100;i++){
-
-  stars.push({
-    x:Math.random()*400,
-    y:Math.random()*600,
-    size:Math.random()*2+0.5,
-    speed:Math.random()*1.5+0.3
+    if (matches) foundCount++;
   });
 
+  emptyMessage.style.display = foundCount ? 'none' : 'block';
 }
 
-
-/* =========================
-   PLAYER
-========================= */
-
-function resetPlayer(){
-
-  player={
-    x:180,
-    y:500,
-    w:40,
-    h:55,
-    speed:6
-  };
-
+function clearSearch() {
+  searchInput.value = '';
+  searchPeople();
 }
 
+searchInput.addEventListener('input', searchPeople);
 
-/* =========================
-   DRAW STARS
-========================= */
+document.getElementById('year').textContent = new Date().getFullYear();
 
-function drawStars(){
-
-  ctx.fillStyle="white";
-
-  stars.forEach(s=>{
-
-    ctx.globalAlpha=Math.random()*.7+.3;
-
-    ctx.fillRect(
-      s.x,
-      s.y,
-      s.size,
-      s.size
-    );
-
-    s.y+=s.speed;
-
-    if(s.y>600){
-
-      s.y=-5;
-      s.x=Math.random()*400;
-
+// স্ক্রল করলে উপাদান ধীরে ধীরে দৃশ্যমান হবে
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
     }
-
   });
-
-  ctx.globalAlpha=1;
-
-}
-
-
-/* =========================
-   DRAW SPACESHIP
-========================= */
-
-function drawPlayer(){
-
-  ctx.save();
-
-  ctx.translate(
-    player.x+20,
-    player.y+25
-  );
-
-  /* Glow */
-
-  ctx.shadowBlur=20;
-  ctx.shadowColor="#00c6ff";
-
-  /* Body */
-
-  ctx.fillStyle="#00bfff";
-
-  ctx.beginPath();
-
-  ctx.moveTo(0,-27);
-  ctx.lineTo(-19,22);
-  ctx.lineTo(0,14);
-  ctx.lineTo(19,22);
-
-  ctx.closePath();
-
-  ctx.fill();
-
-  ctx.shadowBlur=0;
-
-  /* Cockpit */
-
-  ctx.fillStyle="#d8f7ff";
-
-  ctx.beginPath();
-
-  ctx.arc(
-    0,
-    -7,
-    7,
-    0,
-    Math.PI*2
-  );
-
-  ctx.fill();
-
-  /* Engine */
-
-  ctx.fillStyle="#ff8c00";
-
-  ctx.beginPath();
-
-  ctx.moveTo(-6,18);
-  ctx.lineTo(0,34);
-  ctx.lineTo(6,18);
-
-  ctx.closePath();
-
-  ctx.fill();
-
-  ctx.restore();
-
-}
-
-
-/* =========================
-   CREATE METEOR
-========================= */
-
-function createMeteor(){
-
-  let size=Math.random()*28+22;
-
-  meteors.push({
-
-    x:Math.random()*(400-size),
-
-    y:-size,
-
-    size:size,
-
-    speed:2+difficulty*.45,
-
-    rotation:Math.random()*6
-
-  });
-
-}
-
-
-/* =========================
-   DRAW METEOR
-========================= */
-
-function drawMeteor(m){
-
-  ctx.save();
-
-  ctx.translate(
-    m.x+m.size/2,
-    m.y+m.size/2
-  );
-
-  ctx.rotate(m.rotation);
-
-  ctx.fillStyle="#777";
-
-  ctx.beginPath();
-
-  let r=m.size/2;
-
-  for(let i=0;i<8;i++){
-
-    let angle=i*Math.PI/4;
-
-    let radius=
-      r*(.8+Math.random()*.25);
-
-    let x=Math.cos(angle)*radius;
-    let y=Math.sin(angle)*radius;
-
-    if(i===0)
-      ctx.moveTo(x,y);
-    else
-      ctx.lineTo(x,y);
-
-  }
-
-  ctx.closePath();
-  ctx.fill();
-
-
-  /* Craters */
-
-  ctx.fillStyle="#444";
-
-  ctx.beginPath();
-
-  ctx.arc(
-    -5,
-    -4,
-    4,
-    0,
-    Math.PI*2
-  );
-
-  ctx.fill();
-
-
-  ctx.beginPath();
-
-  ctx.arc(
-    6,
-    7,
-    3,
-    0,
-    Math.PI*2
-  );
-
-  ctx.fill();
-
-  ctx.restore();
-
-}
-
-
-/* =========================
-   EXPLOSION
-========================= */
-
-function explosion(x,y){
-
-  for(let i=0;i<25;i++){
-
-    particles.push({
-
-      x:x,
-      y:y,
-
-      dx:(Math.random()-.5)*8,
-      dy:(Math.random()-.5)*8,
-
-      life:30
-
-    });
-
-  }
-
-}
-
-
-/* =========================
-   PARTICLES
-========================= */
-
-function drawParticles(){
-
-  particles.forEach((p,i)=>{
-
-    p.x+=p.dx;
-    p.y+=p.dy;
-    p.life--;
-
-    ctx.fillStyle="#ffb000";
-
-    ctx.fillRect(
-      p.x,
-      p.y,
-      4,
-      4
-    );
-
-    if(p.life<=0){
-
-      particles.splice(i,1);
-
-    }
-
-  });
-
-}
-
-
-/* =========================
-   COLLISION
-========================= */
-
-function collision(a,m){
-
-  let px=a.x+20;
-  let py=a.y+27;
-
-  let mx=m.x+m.size/2;
-  let my=m.y+m.size/2;
-
-  let dx=px-mx;
-  let dy=py-my;
-
-  let distance=
-    Math.sqrt(dx*dx+dy*dy);
-
-  return distance<
-    m.size/2+16;
-
-}
-
-
-/* =========================
-   GAME LOOP
-========================= */
-
-function update(){
-
-  if(!running)return;
-
-  ctx.clearRect(
-    0,
-    0,
-    400,
-    600
-  );
-
-  drawStars();
-
-
-  /* PLAYER MOVE */
-
-  if(keys.left){
-
-    player.x-=player.speed;
-
-  }
-
-  if(keys.right){
-
-    player.x+=player.speed;
-
-  }
-
-
-  /* LIMIT */
-
-  if(player.x<0){
-
-    player.x=0;
-
-  }
-
-  if(player.x>360){
-
-    player.x=360;
-
-  }
-
-
-  /* CREATE METEOR */
-
-  frame++;
-
-  if(frame>45-difficulty*2){
-
-    createMeteor();
-
-    frame=0;
-
-  }
-
-
-  /* METEORS */
-
-  meteors.forEach((m,i)=>{
-
-    m.y+=m.speed;
-
-    m.rotation+=.02;
-
-    drawMeteor(m);
-
-
-    if(m.y>610){
-
-      meteors.splice(i,1);
-
-      score++;
-
-      document.getElementById(
-        "score"
-      ).textContent=score;
-
-    }
-
-
-    if(collision(player,m)){
-
-      explosion(
-        player.x+20,
-        player.y+27
-      );
-
-      gameOver();
-
-    }
-
-  });
-
-
-  /* DIFFICULTY */
-
-  difficulty=
-    1+Math.floor(score/15);
-
-  time=
-    Math.floor(score/2);
-
-  document.getElementById(
-    "time"
-  ).textContent=time;
-
-
-  drawPlayer();
-
-  drawParticles();
-
-
-  requestAnimationFrame(update);
-
-}
-
-
-/* =========================
-   START GAME
-========================= */
-
-function startGame(){
-
-  score=0;
-  time=0;
-  frame=0;
-  difficulty=1;
-
-  meteors=[];
-  particles=[];
-
-  resetPlayer();
-
-
-  document.getElementById(
-    "score"
-  ).textContent=0;
-
-  document.getElementById(
-    "time"
-  ).textContent=0;
-
-
-  document.getElementById(
-    "title"
-  ).textContent="SFS SPACE";
-
-
-  document.querySelector(
-    ".startBtn"
-  ).textContent="START";
-
-
-  running=true;
-
-
-  document.getElementById(
-    "startScreen"
-  ).style.display="none";
-
-
-  update();
-
-}
-
-
-/* =========================
-   GAME OVER
-========================= */
-
-function gameOver(){
-
-  running=false;
-
-
-  if(score>best){
-
-    best=score;
-
-    localStorage.setItem(
-      "sfsSpaceBest",
-      best
-    );
-
-    document.getElementById(
-      "best"
-    ).textContent=best;
-
-  }
-
-
-  document.getElementById(
-    "title"
-  ).textContent="GAME OVER";
-
-
-  document.querySelector(
-    ".startBtn"
-  ).textContent="RESTART";
-
-
-  document.getElementById(
-    "startScreen"
-  ).style.display="flex";
-
-}
-
-
-/* =========================
-   KEYBOARD
-========================= */
-
-document.addEventListener(
-  "keydown",
-  e=>{
-
-    if(e.key==="ArrowLeft"){
-
-      keys.left=true;
-
-    }
-
-    if(e.key==="ArrowRight"){
-
-      keys.right=true;
-
-    }
-
-  }
-);
-
-
-document.addEventListener(
-  "keyup",
-  e=>{
-
-    if(e.key==="ArrowLeft"){
-
-      keys.left=false;
-
-    }
-
-    if(e.key==="ArrowRight"){
-
-      keys.right=false;
-
-    }
-
-  }
-);
-
-
-/* =========================
-   MOBILE LEFT
-========================= */
-
-const left=
-  document.getElementById("left");
-
-const right=
-  document.getElementById("right");
-
-
-left.addEventListener(
-  "touchstart",
-  e=>{
-
-    e.preventDefault();
-
-    keys.left=true;
-
-  },
-  {passive:false}
-);
-
-
-left.addEventListener(
-  "touchend",
-  e=>{
-
-    e.preventDefault();
-
-    keys.left=false;
-
-  },
-  {passive:false}
-);
-
-
-/* =========================
-   MOBILE RIGHT
-========================= */
-
-right.addEventListener(
-  "touchstart",
-  e=>{
-
-    e.preventDefault();
-
-    keys.right=true;
-
-  },
-  {passive:false}
-);
-
-
-right.addEventListener(
-  "touchend",
-  e=>{
-
-    e.preventDefault();
-
-    keys.right=false;
-
-  },
-  {passive:false}
-);
-
-
-/* =========================
-   MOUSE CONTROLS
-========================= */
-
-left.addEventListener(
-  "mousedown",
-  ()=>{
-    keys.left=true;
-  }
-);
-
-left.addEventListener(
-  "mouseup",
-  ()=>{
-    keys.left=false;
-  }
-);
-
-right.addEventListener(
-  "mousedown",
-  ()=>{
-    keys.right=true;
-  }
-);
-
-right.addEventListener(
-  "mouseup",
-  ()=>{
-    keys.right=false;
-  }
-);
-
-
-/* INITIAL */
-
-resetPlayer();
-
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(element => {
+  revealObserver.observe(element);
+});
 </script>
 
 </body>
